@@ -1,0 +1,5 @@
+usr/lib/*/*.a
+usr/lib/*/libgoocanvas-2.0.so
+usr/lib/*/pkgconfig
+usr/include
+usr/share/gir-1.0

@@ -1,0 +1,243 @@
+goocanvas-2.0 (2.0.4-1) UNRELEASED; urgency=medium
+
+  * update
+
+ -- Ross Gammon <rossgammon@debian.org>  Wed, 18 May 2022 22:09:26 -0400
+
+goocanvas-2.0 (2.0.4-1) unstable; urgency=medium
+
+  * New upstream release
+  * Drop gtkdoc mktmpl patch, applied upstream
+  * Bump debhelper to Version 11
+  * Bump standards version, no changes required
+  * Remove whitespace from debian/changelog
+  * Add debian/source/options file so package builds twice
+  * Drop --parallel option from d/rules, not needed for debhelper v11
+  * Drop dh-autoreconf & autotools-dev dependencies, not required dh > 10
+  * Use secure URL in watch file
+  * Move repository from Alioth to Salsa
+
+ -- Ross Gammon <rossgammon@debian.org>  Sun, 04 Mar 2018 06:51:18 +0100
+
+goocanvas-2.0 (2.0.3-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #829862)
+  * Allow package to build twice by updating d/clean
+  * Use Debian email address
+  * Use secure URLs
+  * Bump standards version, no changes required
+  * Add bindnow hardening option
+  * Switch to using a symbols file
+  * Add patch to fix FTBFS due to gtkdoc mktmpl removal (Closes: #876597)
+
+ -- Ross Gammon <rossgammon@debian.org>  Mon, 02 Oct 2017 18:24:48 +0200
+
+goocanvas-2.0 (2.0.2-2) unstable; urgency=medium
+
+  * Change source package name (Closes: #764688)
+    - Allows version 0.15 and 2.0 to be installed simultaneously
+  * Incorporate NMU
+  * Fixed collab-main URLs
+  * New maintainer (Closes: #786709)
+  * Dropped README.source file as quilt now used for patches
+  * Rework package descriptions
+  * Bump standards version, no changes required
+  * Add Replaces/Breaks for package name changes in Ubuntu
+  * Updated copyright file to copyright-format 1.0
+  * Correct install path for gir package
+  * Make -dev & gir packages Multi-Arch
+  * Drop fix-g-i-path patch as typelib now found in Multi-Arch path
+  * Unapply patches from source
+  * Add gbp.conf file
+  * Add an upstream metadata file
+  * Fix clean target to allow building twice
+  * Build documentation to prevent FTBFS on second build
+
+ -- Ross Gammon <rossgammon@mail.dk>  Thu, 11 Jun 2015 20:04:09 +0200
+
+goocanvas (2.0.2-1.1) experimental; urgency=medium
+
+  * Non-maintainer upload.
+  * debian/patches/fix-g-i-path.patch:
+    - Install .typelib files in the correct directory (Closes: #751969).
+  * debian/libgoocanvas-2.0-9.shlibs:
+    - Add shlibs file.
+  * debian/gir1.2-goocanvas-2.0.install:
+    - Update path for .typelib files.
+  * debian/libgoocanvas-2.0-dev.install:
+    - Install .gir file.
+  * debian/libgoocanvas-2.0-common.links:
+    - Fix link to documentation.
+  * debian/libgoocanvas-2.0-common.doc-base.goocanvas2:
+    - Register documentation using doc-base.
+  * debian/rules:
+    - Build with autoreconf.
+    - Run dh_girepository after dh_shlibdeps.
+    - Enable parallel builds.
+  * debian/control:
+    - Add build dependencies on dh-autoreconf and gobject-introspection.
+    - Make libgoocanvas-2.0-dev depend on gir1.2-goocanvas-2.0 and
+      recommend pkg-config.
+    - Remove Multi-Arch: same header from libgoocanvas-2.0-dev and
+      gir1.2-goocanvas-2.0.
+    - Update package descriptions.
+
+ -- Alberto Garcia <berto@igalia.com>  Fri, 18 Jul 2014 12:21:22 +0300
+
+goocanvas (2.0.2-1) experimental; urgency=medium
+
+  * New upstream release (Closes: #588177)
+  * update debian/source/format "3.0 (quilt)" (Closes: #670694)
+  * debian/patches
+    - convert all dpatch to quilt
+    - drop unnecessary all patches
+  * debian/control
+    - set Maintainer: Debian Ruby Extras Maintainers, and add me as Uploaders.
+    - drop unnecessary quilt from Build-Depends
+    - set "Standards-Version: 3.9.5"
+    - add "Build-Depends: libgtk-3-dev" and drop libgtk2.0-dev
+    - add "Build-Depends: libcairo2-dev (>= 1.10)"
+    - update "Build-Depends: libglib2.0-dev (>= 2.28)"
+    - drop dpkg-dev from Build-Depends
+    - set debhelper (>= 9)
+    - make it Multi-Arch ready
+    - drop cdbs from Build-Depends
+    - change package name from libgoocanvas* to libgoocanvas-2.0*
+    - use collabmaint repository for git repository
+    - add "Build-Depends: libgirepository1.0-dev" to install
+      gobject-introspection bindings
+    - introduce gir1.2-goocanvas-2.0 package
+  * debian/rules
+    - convert from cdbs to dh7
+  * debian/compat
+    - set 9
+  * debian/*.install
+    - update to install libgoocanvas-2.0.so*
+  * debian/*.install
+    - move gtk-doc from -dev to -common
+    - add libgoocanvas-2.0-dev.install
+  * debian/*.links
+    - move from -dev to -common
+  * debian/watch
+    - update to track .xz tarball. upstream doesn't provide gz or bz2 anymore
+
+ -- Hideki Yamane <henrich@debian.org>  Fri, 10 Jan 2014 14:44:29 +0900
+
+goocanvas (0.15-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix "FTBFS: ld: demo.o: undefined reference to symbol
+    'sincos@@GLIBC_2.2.5'":
+    add patch 11_link.dpatch from Ubuntu / Matthias Klose:
+    Link demos with -lm.
+    (Closes: #713595)
+
+ -- gregor herrmann <gregoa@debian.org>  Tue, 05 Nov 2013 17:44:00 +0100
+
+goocanvas (0.15-1) unstable; urgency=low
+
+  [ Jeffrey Ratcliffe ]
+  * + debian/watch (Closes: #528620)
+  * debian/control:
+    - Removed section field from libgoocanvas-common and libgoocanvas3
+    - Updated descriptions
+    - Bumped Standards-Version to 3.8.4. No changes needed.
+    + Homepage field
+  * + debian/README.source
+  * debian/copyright:
+    - Removed "(C)", replacing with "copyright" as necessary
+  * debian/rules:
+    + link to upstream changelog
+
+  [ Jose Carlos Garcia Sogo ]
+  * New upstream package (Closes: #521722)
+  * Accept patch by Jeffrey Ratcliffe (Thanks!)
+
+ -- Jose Carlos Garcia Sogo <jsogo@debian.org>  Wed, 26 May 2010 23:15:06 +0200
+
+goocanvas (0.15-0ubuntu1) karmic; urgency=low
+
+  * New upstream version:
+    - Fixed a bug that caused a hang when using GooCanvasWidget with
+      accessibility support turned on.
+    - Added "scale-to-fit" property to GooCanvasImage, to scale the image
+      to the "width" and "height" settings, instead of just clipping.
+    - Added support for tooltips (this means we need GTK+ 2.12).
+      (Note that there is a GTK+ bug which will cause problems with
+      tooltips on a large canvas. See bug #573294.)
+    - Added "x", "y", "width" and "height" properties to items that
+      didn't have them.
+    - Fixed bug in goo_canvas_convert_from_item_space().
+    - Added "scroll-event" signal to GooCanvasItem.
+  * debian/control:
+    - Bump libgtk2.0-dev build-dep to 2.12.
+    - Add ${misc:Depends} to libgoocanvas-common and libgoocanvas-dev to
+      make Lintian happy.
+  * debian/rules:
+    - Add DEB_DH_MAKESHLIBS_ARGS for tighter dependencies - the new
+      version adds symbols.
+  * Update debian/patches/10_relibtoolize for new version.
+
+ -- Chris Coulson <chrisccoulson@ubuntu.com>  Tue, 28 Jul 2009 20:38:41 +0100
+
+goocanvas (0.13-1) unstable; urgency=low
+
+  * New Upstream Version (Closes: #507077)
+  * Update debian/10_relibtoolize patch.
+  * Bump Standards-Version to 3.8.0. No changes needed.
+
+ -- Jose Carlos Garcia Sogo <jsogo@debian.org>  Sun, 07 Dec 2008 17:18:43 +0100
+
+goocanvas (0.12-0ubuntu1) intrepid; urgency=low
+
+  * New upstream release (LP: #272222)
+    - Use the tables' fill and stroke colors to paint its grid and background.
+    - Emit "children_changed" ATK signal when child items added/removed.
+    - Fixed bug when clipping the entire canvas.
+    - Got rid of the XXX_DISABLE_DEPRECATED compilation flags.
+    - Fixed redraws of tables after updates.
+    - Fixed problems compiling with libtool 2.2.
+  * Adapt debian/patches/10_relibtoolize.dpatch towards new configure file
+    (line number changes)
+
+ -- Didier Roche <didrocks@ubuntu-fr.org>  Mon, 22 Sep 2008 17:50:19 +0200
+
+goocanvas (0.10-1) unstable; urgency=low
+
+  * New upstream release
+  * Update 10_relibtoolize patch for this version
+  * Bump Standars-Version to 3.7.3
+  * Change VCS info in debian/control to point to git.debian.org
+
+ -- Jose Carlos Garcia Sogo <jsogo@debian.org>  Sun, 25 May 2008 13:53:01 +0200
+
+goocanvas (0.9-1) unstable; urgency=low
+
+  * New upstream release (Closes: #444846)
+  * Binary package does not need to depend on libgtk2.0-dev (Closes: #437683)
+  * Move above dependency to -dev package
+  * Bump package name due to soname change
+
+ -- Jose Carlos Garcia Sogo <jsogo@debian.org>  Fri, 12 Oct 2007 10:23:35 +0200
+
+goocanvas (0.8-2) unstable; urgency=low
+
+  * Link gtk-doc to /usr/share/doc/libgoocanvas-dev (Closes: #423410)
+
+ -- Jose Carlos Garcia Sogo <jsogo@debian.org>  Mon, 14 May 2007 22:49:11 +0200
+
+goocanvas (0.8-1) unstable; urgency=low
+
+  * New upstream version
+    + Introduces API/ABI changes, and new soname: change package name
+
+ -- Jose Carlos Garcia Sogo <jsogo@debian.org>  Tue, 01 May 2007 21:53:18 +0200
+
+goocanvas (0.6-1) experimental; urgency=low
+
+  * First upload to Debian archive. Use Ubuntu packages
+    from Sebastian Bacher. (Closes: #411729)
+  * New upstream version.
+
+ -- Jose Carlos Garcia Sogo <jsogo@debian.org>  Tue, 20 Feb 2007 17:49:02 +0100
+

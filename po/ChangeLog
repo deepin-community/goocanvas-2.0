@@ -1,0 +1,30 @@
+2011-02-11  Damon Chaplin  <damon@gnome.org>
+
+	* goocanvas.pot: removed file, as we use goocanvas2.pot now, and it
+	probably shouldn't be in git anyway.
+
+2010-06-21  Damon Chaplin  <damon@gnome.org>
+
+	* LINGUAS: created.
+
+2008-12-29  Damon Chaplin  <damon@gnome.org>
+
+	* POTFILES.in: added goocanvasgrid.c.
+
+2008-05-04  Damon Chaplin  <damon@gnome.org>
+
+	* ja.po: update from Kouhei Sutou.
+
+2007-03-06  Damon Chaplin  <damon@gnome.org>
+
+	* es.po: update from Rafael Villar Burke.
+
+2007-02-15  Damon Chaplin  <damon@gnome.org>
+
+	* ja.po: update from Kouhei Sutou.
+
+2007-02-12  Damon Chaplin  <damon@gnome.org>
+
+	* ja.po: 
+	* es.po: added new po files.
+

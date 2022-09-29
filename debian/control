@@ -1,0 +1,79 @@
+Source: goocanvas-2.0
+Priority: optional
+Maintainer: Ross Gammon <rossgammon@debian.org>
+Build-Depends: debhelper (>= 11),
+               libglib2.0-dev (>= 2.28),
+               gtk-doc-tools,
+               libgtk-3-dev,
+               libcairo2-dev (>= 1.10),
+               libgirepository1.0-dev,
+               gobject-introspection
+Standards-Version: 4.1.3
+Section: libs
+Vcs-Git: https://salsa.debian.org/debian/goocanvas-2.0.git
+Vcs-Browser: https://salsa.debian.org/debian/goocanvas-2.0
+Homepage: https://wiki.gnome.org/action/show/Projects/GooCanvas
+
+Package: libgoocanvas-2.0-dev
+Section: libdevel
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Multi-Arch: same
+Depends: libgoocanvas-2.0-9 (= ${binary:Version}),
+         gir1.2-goocanvas-2.0 (= ${binary:Version}),
+         libgtk-3-dev,
+         ${shlib:Depends},
+         ${misc:Depends}
+Recommends: pkg-config
+Description: Canvas widget for GTK+ - development files
+ GooCanvas is a canvas widget for GTK+ that uses the Cairo 2D library for
+ drawing. It has a model/view split, and uses interfaces for canvas items and
+ views, so you can easily turn any application object into canvas items.
+ .
+ This package contains the development files.
+
+Package: libgoocanvas-2.0-common
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Breaks: libgoocanvas-2.0-9-common (<<2.0.2-2)
+Replaces: libgoocanvas-2.0-9-common (<<2.0.2-2)
+Description: Canvas widget for GTK+ - common files
+ GooCanvas is a canvas widget for GTK+ that uses the Cairo 2D library for
+ drawing. It has a model/view split, and uses interfaces for canvas items and
+ views, so you can easily turn any application object into canvas items.
+ .
+ This package contains the translations and the documentation.
+
+Package: libgoocanvas-2.0-9
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Multi-Arch: same
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         libgoocanvas-2.0-common (= ${source:Version})
+Description: Canvas widget for GTK+ - shared library
+ GooCanvas is a canvas widget for GTK+ that uses the Cairo 2D library for
+ drawing. It has a model/view split, and uses interfaces for canvas items and
+ views, so you can easily turn any application object into canvas items.
+ .
+ This package contains the shared library.
+
+Package: gir1.2-goocanvas-2.0
+Architecture: any
+Section: introspection
+Pre-Depends: ${misc:Pre-Depends}
+Multi-Arch: same
+Depends: ${gir:Depends},
+         ${misc:Depends}
+Breaks: gir1.2-goocanvas-2.0-9 (<<2.0.2-2)
+Replaces: gir1.2-goocanvas-2.0-9 (<<2.0.2-2)
+Description: GObject introspection data for GooCanvas - gir bindings
+ GooCanvas is a canvas widget for GTK+ that uses the Cairo 2D library for
+ drawing. It has a model/view split, and uses interfaces for canvas items and
+ views, so you can easily turn any application object into canvas items.
+ .
+ This package contains the GObject introspection data.
+ .
+ It can be used by packages using the GIRepository format to generate
+ dynamic bindings.
